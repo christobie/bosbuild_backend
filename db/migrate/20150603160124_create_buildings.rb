@@ -6,7 +6,7 @@ class CreateBuildings < ActiveRecord::Migration
       t.string :street_name
       t.string :hood
       t.string :city
-      t.text :zip
+      t.string :zip
 
       t.timestamps null: false
     end
