@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    render text: 'Welcome to BostonsBuildings.com!'
+    render text: 'This is the BostonsBuildings Back-End.'
   end
 
 end

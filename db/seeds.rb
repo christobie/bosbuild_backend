@@ -9,11 +9,17 @@
 # @file = Rack::Test::UploadedFile.new(Rails.root + 'boston_slider.jpg', 'image/jpg')
 # Picture.create!(image: @file)
 
-User.create!('Chris Tobeck','ctobeck@gmail.com', 'christobie', 'Bay Village', 'Boston')
-User.create!('Alice Tester','alice@email.com', 'alicewonderland', 'Fenway', 'Boston')
-User.create!('Bob Tester','bob@email.com', 'BobbyBoston', 'South Boston', 'Boston')
+User.destroy_all
+Building.destroy_all
 
-Building.create!('Wilkes Passage', '1313', 'Washington Street', 'South End', 'Boston', '02118')
-Building.create!('Laconia Lofts', '1200', 'Washington Street', 'South End', 'Boston', '02118')
-Building.create!('Millennium Tower', '1', 'Franklin Street', 'Downtown', 'Boston', '02108')
+User.create!(name:'Chris Tobeck', email:'ctobeck@gmail.com', username:'christobie', hood:'Bay Village', city:'Boston')
+User.create!(name:'Alice Tester', email:'alice@email.com', username:'alicewonderland', hood:'Fenway', city:'Boston')
+User.create!(name:'Bob Tester', email:'bob@email.com', username:'BobbyBoston', hood:'South Boston', city:'Boston')
+
+Building.create!(name:'Wilkes Passage', street_num:'1313', street_name:'Washington Street', hood:'South End', city:'Boston', zip:'02118')
+Building.create!(name:'Laconia Lofts', street_num:'1200', street_name:'Washington Street', hood:'South End', city:'Boston', zip:'02118')
+Building.create!(name:'Millennium Tower', street_num:'1', street_name:'Franklin Street', hood:'Downtown', city:'Boston', zip:'02108')
+
+@file = Rack::Test::UploadedFile.new(Rails.root + 'boston_slider.jpg', 'image/jpg')
+Picture.create!(caption: "This is Boston!", image: @file )
 
