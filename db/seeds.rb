@@ -16,10 +16,18 @@ User.create!(name:'Chris Tobeck', email:'ctobeck@gmail.com', username:'christobi
 User.create!(name:'Alice Tester', email:'alice@email.com', username:'alicewonderland', hood:'Fenway', city:'Boston')
 User.create!(name:'Bob Tester', email:'bob@email.com', username:'BobbyBoston', hood:'South Boston', city:'Boston')
 
-Building.create!(name:'Wilkes Passage', street_num:'1313', street_name:'Washington Street', hood:'South End', city:'Boston', zip:'02118')
-Building.create!(name:'Laconia Lofts', street_num:'1200', street_name:'Washington Street', hood:'South End', city:'Boston', zip:'02118')
-Building.create!(name:'Millennium Tower', street_num:'1', street_name:'Franklin Street', hood:'Downtown', city:'Boston', zip:'02108')
+wilkes = Building.create!(name:'Wilkes Passage', street_num:'1313', street_name:'Washington Street', hood:'South End', city:'Boston', zip:'02118')
+laconia = Building.create!(name:'Laconia Lofts', street_num:'1200', street_name:'Washington Street', hood:'South End', city:'Boston', zip:'02118')
+millenium = Building.create!(name:'Millennium Tower', street_num:'1', street_name:'Franklin Street', hood:'Downtown', city:'Boston', zip:'02108')
+
 
 @file = Rack::Test::UploadedFile.new(Rails.root + 'boston_slider.jpg', 'image/jpg')
-Picture.create!(caption: "This is Boston!", image: @file )
+wilkes.pictures.create!(caption: "This is Boston!", image: @file )
+
+
+@file = Rack::Test::UploadedFile.new(Rails.root + 'millenium_tower_01.jpg', 'image/jpg')
+laconia.pictures.create!(caption: "Fuck Off!", image: @file )
+
+@file = Rack::Test::UploadedFile.new(Rails.root + 'millennium_tower_02.jpg', 'image/jpg')
+millenium.pictures.create!(caption: "I want to sleep!", image: @file )
 
