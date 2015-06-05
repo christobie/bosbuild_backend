@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   #get '/users' => 'user#index'
   # get '/users/:id' => 'user#show'
   resources :users
-#  get 'buildings/search' => 'buildings#find_by_name'
+  get 'buildings/search/:name' => 'buildings#find_by_name'
 #  get 'buildings' => 'building#show'
 
   resources :pictures

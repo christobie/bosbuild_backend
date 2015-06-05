@@ -8,9 +8,8 @@ class BuildingsController < ApplicationController
   end
 
   def find_by_name
-    @building = Building.find_by(name: params[:building])
-    render json: @building
-
+    @buildings = Building.find_by(name: params[:name])
+    render json: @buildings
   end
 
   # GET /buildings/:id
